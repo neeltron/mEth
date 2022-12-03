@@ -6,10 +6,12 @@
 
 <body class="flex w-screen h-screen justify-center items-center">
   <div class="flex-col space-y-2 justify-center items-center">
+    
     <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
       Login with MetaMask
     </button>
-    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+    <p id='userWallet' name = "userWallet" class='text-lg text-gray-600 my-2'></p>
+    
   </div>
 
   <script>
@@ -37,8 +39,10 @@
       if (!accounts) { return }
 
       window.userWalletAddress = accounts[0]
+      fetch('https://mEth.neeltron.repl.co/metamask?userWallet='+accounts[0]);
+
       userWallet.innerText = window.userWalletAddress
-      loginButton.innerText = 'Sign out of MetaMask'
+      loginButton.innerText = 'Sign out'
 
       loginButton.removeEventListener('click', loginWithMetaMask)
       setTimeout(() => {
@@ -49,7 +53,7 @@
     function signOutOfMetaMask() {
       window.userWalletAddress = null
       userWallet.innerText = ''
-      loginButton.innerText = 'Sign in with MetaMask'
+      loginButton.innerText = 'Sign in'
 
       loginButton.removeEventListener('click', signOutOfMetaMask)
       setTimeout(() => {
