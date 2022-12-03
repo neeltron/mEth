@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from replit import db
+
 app = Flask('app', template_folder = "templates", static_folder = "static")
 
 @app.route('/')
@@ -12,6 +14,6 @@ def doctor():
 
 @app.route('/metamask')
 def metamask():
-  
+  return render_template('metamask.html')
 
 app.run(host='0.0.0.0', port=8080)
