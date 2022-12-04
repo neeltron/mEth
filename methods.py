@@ -10,7 +10,6 @@ mint_to_address = "0xc3637Ce856bab11019b2b7505d2852750B050a2D"
 #     'medicine_1' : Quant
 #   }
 # }
-
 @app.route('/savePrescription', methods=['POST'])
 def execute_prescription():
   try:
@@ -65,4 +64,5 @@ medicine_uri_dictionary = {
 }
 
 
-def check_validity()
+
+# def check_validity()
